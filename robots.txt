@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://starckhip4.github.io/i-game-zh-com-cn/sitemap.xml
