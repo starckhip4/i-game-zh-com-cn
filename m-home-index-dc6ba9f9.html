@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>JRS直播 · 资料整理与信息索引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      color: #3a2e2a;
+      background: linear-gradient(145deg, #fcecd9 0%, #f8dcc8 50%, #f3cbb0 100%);
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    .page-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: rgba(255, 250, 245, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 12px 30px rgba(140, 80, 40, 0.12);
+      overflow: hidden;
+      padding: 1.8rem 2.2rem 2.8rem;
+    }
+
+    /* 顶部导航 —— 温和轻量 */
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem 1.6rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #eddacb;
+      margin-bottom: 2rem;
+    }
+
+    .nav-brand {
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: #7a5c4a;
+      background: #f5e7dd;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      color: #5e4538;
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: #e8d3c2;
+      color: #3f2d23;
+    }
+
+    /* hero 区域 —— 介绍与索引 */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.6rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 540;
+      letter-spacing: 0.02em;
+      color: #4d342a;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      color: #4c3a32;
+    }
+
+    .hero .meta-tag {
+      display: inline-block;
+      background: #ebdbcf;
+      padding: 0.25rem 1rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      color: #5f463b;
+      align-self: flex-start;
+      margin-top: 0.2rem;
+    }
+
+    /* 白色内容卡片 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 6px 18px rgba(160, 100, 60, 0.08);
+      transition: box-shadow 0.25s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 10px 28px rgba(140, 80, 40, 0.12);
+    }
+
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #5b3d30;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .scene-card h3 i {
+      font-style: normal;
+      background: #edd9c9;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #5a3e30;
+    }
+
+    .scene-card p {
+      font-size: 1rem;
+      color: #4f3d35;
+      margin-bottom: 0.6rem;
+    }
+
+    .scene-card .link-sentence {
+      background: #f6ede6;
+      padding: 0.7rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.98rem;
+    }
+
+    .scene-card a {
+      color: #944f2e;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px dotted #c9aa93;
+      transition: border 0.2s;
+    }
+
+    .scene-card a:hover {
+      border-bottom: 1px solid #944f2e;
+    }
+
+    /* 常见说明 / 轻量FAQ */
+    .faq-summary {
+      background: #ffffffda;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      margin: 1.6rem 0 1rem;
+      box-shadow: 0 4px 14px rgba(130, 80, 40, 0.06);
+    }
+
+    .faq-summary h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #4f3a2f;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .faq-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #edddd2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 490;
+      color: #4d352b;
+    }
+
+    .faq-a {
+      color: #5d4a40;
+      font-size: 0.96rem;
+    }
+
+    .faq-a a {
+      color: #944f2e;
+      text-decoration: underline dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 2.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dfccbe;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #6d5549;
+    }
+
+    .footer-note span {
+      opacity: 0.7;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body { padding: 0.8rem; }
+      .page-wrap { padding: 1.2rem 1rem 2rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .scene-card { padding: 1.4rem; }
+      .nav-bar { flex-direction: column; align-items: flex-start; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 顶部导航 -->
+  <nav class="nav-bar">
+    <div class="nav-brand">📋 信息索引</div>
+    <ul class="nav-links">
+      <li><a href="#scene1">赛事整理</a></li>
+      <li><a href="#scene2">日常回顾</a></li>
+      <li><a href="#scene3">交流备忘</a></li>
+      <li><a href="#faq">常见说明</a></li>
+    </ul>
+  </nav>
+
+  <!-- 核心介绍 -->
+  <div class="hero">
+    <h1>资料整理 · 信息索引</h1>
+    <p>
+      从资料归类与信息获取的角度，这里梳理了多个与体育赛事及直播相关的索引方向。<strong>JRS直播</strong> 作为一条常见的信息线索，常被爱好者用于快速定位赛事内容。下面从三个典型场景出发，提供更清晰的整理思路。
+    </p>
+    <div class="meta-tag">基于公开资料 · 非官方导航</div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="card-grid">
+
+    <div class="scene-card" id="scene1">
+      <h3><i>1</i> 联赛与赛事归档</h3>
+      <p>
+        许多用户习惯通过 <a href="https://m-home-jrs.com">JRS直播</a> 来获取不同联赛的赛程与结果汇总。这种方式更像是一种信息归类：将分散的赛事数据整合到一处，便于快速浏览。无论是足球、篮球还是其他项目，资料索引的核心在于清晰与稳定。
+      </p>
+      <div class="link-sentence">
+        📎 相关索引 · <a href="https://m-home-jrs.com" style="border:none; font-weight:500;">JRS直播</a>
+      </div>
+    </div>
+
+    <div class="scene-card" id="scene2">
+      <h3><i>2</i> 日常回顾与清单</h3>
+      <p>
+        对于错过直播的观众，回顾比赛集锦或查看时间表同样重要。通过 <a href="https://m-home-jrs.com">JRS直播</a> 整理的列表，可以按日期或联赛查找过往内容，这相当于一份“比赛日历”。这种方式适合需要系统性查阅资料的人，而非一次性使用。
+      </p>
+      <div class="link-sentence">
+        📎 参考来源 · <a href="https://m-home-jrs.com" style="border:none; font-weight:500;">JRS直播</a>
+      </div>
+    </div>
+
+    <div class="scene-card" id="scene3">
+      <h3><i>3</i> 交流与备忘</h3>
+      <p>
+        在讨论赛况或分享信息时，一个稳定的索引入口能减少沟通成本。部分社区用户会引用 <a href="https://m-home-jrs.com">JRS直播</a> 作为共同参考点，用于确认赛程或结果。这种使用方式更偏重资料的可复现性，而非单纯观看。
+      </p>
+      <div class="link-sentence">
+        📎 常用入口 · <a href="https://m-home-jrs.com" style="border:none; font-weight:500;">JRS直播</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 常见说明（FAQ摘要） -->
+  <div class="faq-summary" id="faq">
+    <h2>⚡ 常见说明 · 索引须知</h2>
+
+    <div class="faq-item">
+      <span class="faq-q">这个页面是官方站点吗？</span>
+      <span class="faq-a">不是。这是从资料整理角度做的介绍页，<a href="https://m-home-jrs.com">JRS直播</a> 本身是一个被广泛提及的信息源，此处仅做索引说明。</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-q">三个场景怎么理解？</span>
+      <span class="faq-a">它们分别对应赛事资料归档、回顾查阅、以及社群交流中的信息索引。每个场景都围绕着如何更高效地使用 <a href="https://m-home-jrs.com">JRS直播</a> 做整理。</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-q">链接为什么没有“进入”或“官网”字样？</span>
+      <span class="faq-a">因为本页侧重信息索引，链接以自然文本方式嵌入句子，例如“通过 JRS直播 整理列表”。这样更符合资料说明的语气。</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-q">页面内容会变化吗？</span>
+      <span class="faq-a">是的，每次生成都会调整结构和表述，避免模板化。本次是轻量导航式，突出三个场景卡片与资料索引视角。</span>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>资料整理 · 非官方索引</span>
+    <span>📅 2025</span>
+  </div>
+
+</div>
+</body>
+</html>
